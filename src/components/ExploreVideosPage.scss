@@ -1,0 +1,794 @@
+// ExploreVideosPage.scss - Light Theme Redesign matching Reference Image
+$snap-yellow: #ffd21f;
+$snap-yellow-hover: #ffdb4d;
+$snap-text-dark: #0b0c10;
+$snap-text-title: #111827;
+$snap-text-muted: #64748b;
+$snap-card-bg: #ffffff;
+$snap-card-border: #edf0f5;
+$snap-font: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+.explore-page-canvas {
+  background-color: #ffffff;
+  color: $snap-text-dark;
+  font-family: $snap-font;
+  min-height: 100vh;
+  padding: 20px 24px 80px;
+
+  .explore-page-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .highlight-yellow {
+    color: $snap-yellow;
+  }
+
+  // 1. HERO BANNER
+  .explore-hero-card {
+    background: #ffffff url('/images/explore_hero_brush_bg.png') no-repeat right center / cover;
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 32px 36px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+
+    @media (max-width: 960px) {
+      grid-template-columns: 1fr;
+      padding: 20px 16px 24px;
+    }
+
+    .hero-left-content {
+      z-index: 2;
+
+      .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: $snap-text-dark;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+
+        .kicker-line {
+          display: inline-block;
+          width: 20px;
+          height: 2px;
+          background: $snap-yellow;
+        }
+      }
+
+      .hero-main-title {
+        font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+        color: $snap-text-dark;
+        margin-bottom: 18px;
+
+        .highlight-yellow {
+          color: $snap-yellow;
+        }
+      }
+
+      .hero-desc {
+        color: $snap-text-muted;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        max-width: 520px;
+        margin-bottom: 32px;
+      }
+
+      .hero-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 36px;
+        flex-wrap: wrap;
+
+        .btn-start-exploring {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background-color: $snap-yellow;
+          color: #0b0c10;
+          font-weight: 800;
+          font-size: 0.95rem;
+          padding: 14px 28px;
+          border-radius: 999px;
+          border: none;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          box-shadow: 0 6px 20px rgba(255, 210, 31, 0.35);
+
+          &:hover {
+            background-color: $snap-yellow-hover;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 210, 31, 0.5);
+          }
+        }
+
+        .btn-how-it-works {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background-color: #ffffff;
+          color: #0b0c10;
+          font-weight: 700;
+          font-size: 0.95rem;
+          padding: 14px 26px;
+          border-radius: 999px;
+          border: 1px solid #e2e8f0;
+          cursor: pointer;
+          transition: all 0.25s ease;
+
+          &:hover {
+            background-color: #f8fafc;
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+          }
+        }
+      }
+
+      .hero-stats-row {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+
+        .stat-row-divider {
+          width: 1px;
+          height: 32px;
+          background: #e2e8f0;
+
+          @media (max-width: 600px) {
+            display: none;
+          }
+        }
+
+        .explore-stat-row-item {
+          display: flex !important;
+          flex-direction: row !important;
+          align-items: center !important;
+          gap: 12px;
+
+          .stat-row-icon {
+            color: #f59e0b;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+          }
+
+          .stat-row-text {
+            display: flex;
+            flex-direction: column;
+
+            strong {
+              font-size: 1.2rem;
+              font-weight: 900;
+              color: $snap-text-dark;
+              line-height: 1.1;
+            }
+
+            span {
+              font-size: 0.8rem;
+              color: $snap-text-muted;
+              font-weight: 500;
+              margin-top: 2px;
+            }
+          }
+        }
+      }
+    }
+
+    .hero-right-artwork {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .gamer-boy-img {
+        width: 100%;
+        max-height: 480px;
+        object-fit: contain;
+        display: block;
+        transition: transform 0.4s ease;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+
+  // 2. BROWSE BY GENRE
+  .browse-genre-section {
+    margin-bottom: 56px;
+
+    .section-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+
+      .title-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        .title-icon-yellow {
+          width: 40px;
+          height: 40px;
+          border-radius: 12px;
+          background: #fef9c3;
+          color: #eab308;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: $snap-text-dark;
+          margin: 0 0 2px 0;
+        }
+
+        p {
+          font-size: 0.88rem;
+          color: $snap-text-muted;
+          margin: 0;
+        }
+      }
+
+      .view-all-text-link {
+        background: transparent;
+        border: none;
+        color: $snap-text-dark;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #eab308;
+        }
+      }
+    }
+
+    .genre-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+
+      @media (max-width: 1100px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 680px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 460px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .genre-card {
+      background: $snap-card-bg;
+      border: 1px solid $snap-card-border;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+        border-color: rgba(255, 210, 31, 0.5);
+
+        .arrow-circle {
+          background: $snap-yellow;
+          color: #0b0c10;
+        }
+      }
+
+      .genre-thumb-wrap {
+        height: 130px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+      }
+
+      &:hover .genre-thumb-wrap img {
+        transform: scale(1.05);
+      }
+
+      .genre-card-content {
+        padding: 16px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+
+        .genre-main-info {
+          flex: 1;
+
+          .genre-title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+
+            .genre-badge-icon {
+              width: 26px;
+              height: 26px;
+              min-width: 26px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 0.75rem;
+            }
+
+            h3 {
+              font-size: 0.98rem;
+              font-weight: 800;
+              color: $snap-text-title;
+              margin: 0;
+            }
+          }
+
+          p {
+            font-size: 0.76rem;
+            color: $snap-text-muted;
+            margin: 0;
+            line-height: 1.35;
+          }
+        }
+
+        .genre-action-row {
+          padding-left: 8px;
+
+          .arrow-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f3f7;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            transition: all 0.2s ease;
+          }
+        }
+      }
+    }
+  }
+
+  // 3. DISCOVER HIDDEN GEMS BANNER (Dark container matching reference)
+  .discover-gems-banner {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    background: #14161f;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+    .gems-banner-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+
+      .gems-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gems-gradient-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(16, 18, 26, 0.95) 0%,
+          rgba(16, 18, 26, 0.75) 45%,
+          rgba(16, 18, 26, 0.85) 100%
+        );
+      }
+    }
+
+    .gems-content-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 36px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+
+      @media (max-width: 860px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 24px;
+      }
+
+      .gems-left {
+        max-width: 540px;
+
+        .title-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 10px;
+
+          .crown-icon {
+            color: $snap-yellow;
+            font-size: 1.4rem;
+          }
+
+          h2 {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin: 0;
+          }
+        }
+
+        p {
+          color: rgba(255, 255, 255, 0.75);
+          font-size: 0.92rem;
+          line-height: 1.5;
+          margin-bottom: 20px;
+        }
+
+        .btn-explore-now {
+          background-color: $snap-yellow;
+          color: #0b0c10;
+          font-weight: 800;
+          font-size: 0.9rem;
+          padding: 12px 26px;
+          border-radius: 999px;
+          border: none;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          box-shadow: 0 4px 14px rgba(255, 210, 31, 0.3);
+
+          &:hover {
+            background-color: $snap-yellow-hover;
+            transform: translateY(-2px);
+          }
+        }
+      }
+
+      .gems-right-checklist {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-width: 220px;
+
+        .check-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          color: #ffffff;
+          font-size: 0.88rem;
+          font-weight: 600;
+
+          .item-icon {
+            color: $snap-yellow;
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+
+  // 4. POPULAR IN ADVENTURE VIDEO GAMES
+  .adventure-popular-section {
+    margin-bottom: 60px;
+
+    .section-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+
+      .title-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        .title-icon-yellow {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #fef9c3;
+          color: #f59e0b;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 900;
+          color: $snap-text-dark;
+          margin: 0 0 2px 0;
+        }
+
+        p {
+          font-size: 0.88rem;
+          color: $snap-text-muted;
+          margin: 0;
+        }
+      }
+
+      .view-all-pill-btn {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        color: $snap-text-dark;
+        font-weight: 700;
+        font-size: 0.88rem;
+        padding: 8px 18px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: #f8fafc;
+          border-color: #cbd5e1;
+        }
+      }
+    }
+
+    .adventure-video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+
+      @media (max-width: 1080px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 560px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .adventure-card {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+
+        .adv-thumb-container img {
+          transform: scale(1.05);
+        }
+
+        .center-play-badge {
+          background: $snap-yellow;
+          color: #0b0c10;
+          transform: scale(1.1);
+        }
+      }
+
+      .adv-thumb-container {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #1e2029;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+
+        .adv-duration {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          background: rgba(0, 0, 0, 0.75);
+          color: #ffffff;
+          font-size: 0.72rem;
+          font-weight: 700;
+          padding: 3px 7px;
+          border-radius: 4px;
+        }
+
+        .center-play-badge {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: rgba(0, 0, 0, 0.6);
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.25s ease;
+
+          svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            margin-left: 2px;
+          }
+        }
+      }
+
+      .adv-info-row {
+        padding: 12px 2px 4px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        .title-block {
+          h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: $snap-text-dark;
+            margin: 0 0 6px 0;
+            line-height: 1.3;
+          }
+
+          .adv-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: $snap-text-muted;
+
+            .meta-eye {
+              width: 14px;
+              height: 14px;
+            }
+
+            .dot {
+              font-size: 0.6rem;
+            }
+          }
+        }
+
+        .menu-dots-btn {
+          background: transparent;
+          border: none;
+          color: #94a3b8;
+          font-size: 0.95rem;
+          cursor: pointer;
+          padding: 4px;
+
+          &:hover {
+            color: $snap-text-dark;
+          }
+        }
+      }
+    }
+  }
+
+  // 5. CAN'T FIND WHAT YOU'RE LOOKING FOR CALLOUT
+  .cant-find-callout {
+    background: #f4f5f8;
+    border-radius: 22px;
+    padding: 28px 36px;
+    position: relative;
+    overflow: hidden;
+
+    .callout-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+
+      @media (max-width: 800px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .callout-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .callout-icon-box {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        border-radius: 16px;
+        background: $snap-yellow;
+        color: #0b0c10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        box-shadow: 0 6px 16px rgba(255, 210, 31, 0.3);
+      }
+
+      .callout-text {
+        h3 {
+          font-size: 1.3rem;
+          font-weight: 900;
+          color: $snap-text-dark;
+          margin: 0 0 4px 0;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: $snap-text-muted;
+          margin: 0;
+        }
+      }
+    }
+
+    .btn-browse-games {
+      background-color: $snap-yellow;
+      color: #0b0c10;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(255, 210, 31, 0.3);
+
+      &:hover {
+        background-color: $snap-yellow-hover;
+        transform: translateY(-2px);
+      }
+    }
+
+    .callout-doodle-wrap {
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 900px) {
+        display: none;
+      }
+
+      .bottom-doodle-img {
+        max-height: 70px;
+        object-fit: contain;
+      }
+    }
+  }
+}

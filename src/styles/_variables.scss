@@ -1,0 +1,78 @@
+// GHSnapflix SCSS Design System Variables
+// Anime Streaming Two-Tone Palette: Dark Header/Hero + Warm Off-White Canvas + Deep Footer
+
+// Canvas (Middle sections background matching the reference screenshot)
+$bg-canvas: #ececf0;
+$bg-canvas-card: #ffffff;
+$bg-canvas-card-hover: #f7f7fa;
+$bg-canvas-border: rgba(0, 0, 0, 0.08);
+$text-canvas-heading: #12131a;
+$text-canvas-body: #3c3d47;
+$text-canvas-muted: #6f707e;
+
+// Dark Sections (Header, Hero Banner, Footer, and Floating Contrast Panels)
+$bg-header: #111218;
+$bg-hero: #0c0d12;
+$bg-dark: #08080b;
+$bg-dark-card: #14151f;
+$bg-dark-card-hover: #1c1d2b;
+$bg-surface: #1e1f2d;
+$bg-footer: #090a0f;
+$bg-glass: rgba(17, 18, 24, 0.92);
+
+// Accent Colors
+$accent-yellow: #f5c518;
+$accent-yellow-light: #ffd84d;
+$accent-yellow-dark: #d8aa08;
+$accent-gold: #e5a823;
+$accent-orange: #ff7b25;
+
+// Genre & Category Colors
+$color-action: #e63946;
+$color-adventure: #3a86ff;
+$color-fighting: #fb5607;
+$color-thriller: #8338ec;
+$color-comedy: #ff006e;
+$color-brain: #2ec4b6;
+
+// Text Colors
+$text-primary: #ffffff;
+$text-secondary: #a0a0b2;
+$text-muted: #6b6c80;
+$text-dark: #0c0d12;
+
+// Borders & Dividers
+$border-subtle: rgba(255, 255, 255, 0.08);
+$border-card: rgba(255, 255, 255, 0.12);
+$border-yellow: rgba(245, 197, 24, 0.4);
+
+// Spacing & Border Radii (14px to 24px as requested)
+$radius-xs: 6px;
+$radius-sm: 10px;
+$radius-md: 14px;
+$radius-lg: 18px;
+$radius-xl: 22px;
+$radius-xxl: 26px;
+$radius-pill: 9999px;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+$shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.12);
+$shadow-dark-card: 0 10px 30px rgba(0, 0, 0, 0.45);
+$shadow-yellow-glow: 0 0 24px rgba(245, 197, 24, 0.35);
+
+// Typography
+$font-family-base: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-family-japanese: 'Brush Script MT', 'Kaushan Script', cursive, sans-serif;
+
+// Transitions
+$transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+// Breakpoints
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;

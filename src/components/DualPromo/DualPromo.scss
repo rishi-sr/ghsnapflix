@@ -1,0 +1,127 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.dual-promo-section {
+  width: 100%;
+  padding: 30px 0;
+
+  .dual-promo-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+
+    @include tablet {
+      padding: 0 16px;
+    }
+  }
+
+  // Left Card: Explore by Genre
+  .genre-promo-card {
+    width: 100%;
+    background: #14151f;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: $radius-xl;
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+    @include mobile {
+      padding: 24px 18px;
+    }
+
+    .genre-card-header {
+      margin-bottom: 24px;
+
+      .title-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+
+        .accent-bar {
+          width: 4px;
+          height: 24px;
+          background: $accent-yellow;
+          border-radius: $radius-pill;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+          font-weight: 800;
+          color: $text-primary;
+        }
+      }
+
+      p {
+        font-size: 0.88rem;
+        color: $text-muted;
+        margin-left: 14px;
+      }
+    }
+
+    .genre-button-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+
+      @include tablet {
+        gap: 12px;
+      }
+
+      @include mobile {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .genre-btn {
+        @include flex-col;
+        @include flex-center;
+        gap: 10px;
+        padding: 20px 10px 16px;
+        border-radius: $radius-lg;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        cursor: pointer;
+        transition: all $transition-fast;
+
+        &:hover {
+          transform: translateY(-3px);
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+
+          .genre-icon-wrap {
+            transform: scale(1.1);
+          }
+        }
+
+        .genre-icon-wrap {
+          width: 42px;
+          height: 42px;
+          border-radius: 12px;
+          @include flex-center;
+          color: #fff;
+          font-size: 1.15rem;
+          transition: transform $transition-fast;
+
+          &.action { background: rgba(230, 57, 70, 0.25); color: #ff5964; }
+          &.adventure { background: rgba(58, 134, 255, 0.25); color: #3a86ff; }
+          &.fighting { background: rgba(251, 86, 7, 0.25); color: #fb5607; }
+          &.thriller { background: rgba(131, 56, 236, 0.25); color: #9d4edd; }
+          &.comedy { background: rgba(255, 0, 110, 0.25); color: #ff006e; }
+          &.brain { background: rgba(46, 196, 182, 0.25); color: #2ec4b6; }
+        }
+
+        span {
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: $text-secondary;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

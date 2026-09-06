@@ -1,0 +1,119 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.value-props-section {
+  width: 100%;
+  padding: 30px 0 40px;
+
+  .value-props-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    @include mobile {
+      padding: 0 16px;
+    }
+  }
+
+  .value-props-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+
+    .heart-icon {
+      font-size: 1.4rem;
+      color: $accent-yellow;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: $text-canvas-heading;
+      letter-spacing: -0.3px;
+    }
+  }
+
+  .props-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .prop-card {
+      background: #eef0f4;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: $radius-lg;
+      padding: 30px 20px 24px;
+      @include flex-col;
+      @include flex-center;
+      text-align: center;
+      transition: all $transition-fast;
+
+      &:hover {
+        transform: translateY(-4px);
+        background: #ffffff;
+        border-color: rgba(245, 197, 24, 0.5);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+        .prop-icon-wrap {
+          transform: scale(1.1);
+        }
+      }
+
+      .prop-icon-wrap {
+        width: 48px;
+        height: 48px;
+        color: $accent-yellow;
+        @include flex-center;
+        margin-bottom: 14px;
+        transition: transform $transition-fast;
+
+        svg {
+          width: 32px;
+          height: 32px;
+          fill: $accent-yellow;
+        }
+
+        &.hd-wrap {
+          width: auto;
+          height: auto;
+
+          .hd-tag {
+            display: inline-block;
+            background: $accent-yellow;
+            color: #0c0d12;
+            font-size: 0.95rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            padding: 5px 12px;
+            border-radius: $radius-sm;
+            box-shadow: 0 2px 8px rgba(245, 197, 24, 0.35);
+          }
+        }
+      }
+
+      h4 {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: $text-canvas-heading;
+        margin-bottom: 6px;
+      }
+
+      p {
+        font-size: 0.84rem;
+        color: $text-canvas-muted;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+

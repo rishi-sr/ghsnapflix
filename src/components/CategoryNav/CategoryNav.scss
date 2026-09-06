@@ -1,0 +1,166 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.category-nav-section {
+  width: 100%;
+  padding: 28px 0 10px;
+  background: transparent;
+
+  .category-nav-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      padding: 0 16px;
+    }
+  }
+
+  .category-scroll-container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 6px 4px 14px;
+    width: 100%;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // All Card (Solid Yellow with Grid Icon)
+  .category-card-all {
+    flex-shrink: 0;
+    width: 98px;
+    height: 68px;
+    border-radius: $radius-md;
+    background: $accent-yellow;
+    color: $text-dark;
+    @include flex-col;
+    @include flex-center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all $transition-fast;
+    box-shadow: 0 4px 14px rgba(245, 197, 24, 0.4);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(245, 197, 24, 0.55);
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    span {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  // Individual Image Category Item
+  .category-item-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: translateY(-2px);
+
+      .category-thumb-card {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+        img {
+          transform: scale(1.08);
+        }
+      }
+
+      .cat-label {
+        color: #000000;
+        font-weight: 800;
+      }
+    }
+
+    &.active {
+      .category-thumb-card {
+        border-color: $accent-yellow;
+        box-shadow: 0 0 14px rgba(245, 197, 24, 0.4);
+      }
+
+      .cat-label {
+        color: $accent-gold;
+        font-weight: 800;
+      }
+    }
+
+    .category-thumb-card {
+      width: 108px;
+      height: 68px;
+      border-radius: $radius-md;
+      overflow: hidden;
+      position: relative;
+      background: #1a1a24;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all $transition-fast;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-normal;
+      }
+    }
+
+    .cat-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: $text-canvas-heading;
+      transition: color $transition-fast;
+    }
+  }
+
+  // Scroll Next Circle Button
+  .scroll-next-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #12131a;
+    @include flex-center;
+    flex-shrink: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all $transition-fast;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: $accent-yellow;
+      color: $text-dark;
+      border-color: $accent-yellow;
+      transform: scale(1.08);
+      box-shadow: 0 4px 14px rgba(245, 197, 24, 0.4);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

@@ -14,15 +14,19 @@
     "axios": "^1.18.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-icons": "^5.7.0",
     "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start:cra": "react-scripts start",
+    "build:cra": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "clean:public-videos": "node scripts/remove-public-videos.cjs"
   },
   "eslintConfig": {
@@ -42,5 +46,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "sass": "^1.104.0",
+    "vite": "^8.2.2"
   }
 }
