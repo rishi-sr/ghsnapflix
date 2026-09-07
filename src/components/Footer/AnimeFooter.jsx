@@ -234,7 +234,19 @@ export default function AnimeFooter({ onNavigate, onOpenLegalModal }) {
         {/* Bottom Copyright & Compliance Bar */}
         <div className="footer-bottom">
           <div className="copyright-info">
-            <span>© 2026 GHSNAPFLIX.buzz • All rights reserved.</span>
+            <span>
+              © 2026 GHSNAPFLIX.buzz • All rights reserved.
+              <span className="managed-by">
+                {' '}•{' '}
+                <a
+                  href="https://murtihub.co.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Managed by Murtihub.co.in
+                </a>
+              </span>
+            </span>
             <span className="partner-note">MTN Mobile Billing Verified Partner</span>
           </div>
           <div className="community-tag">

@@ -470,6 +470,24 @@
         gap: 6px;
       }
 
+      .managed-by {
+        display: inline;
+        opacity: 0.25;
+        font-size: 0.82rem;
+        transition: opacity 0.2s ease;
+
+        a {
+          color: #293047;
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            text-decoration: underline;
+            color: #60a5fa;
+          }
+        }
+      }
+
       .partner-note {
         display: inline-flex;
         align-items: center;
@@ -483,6 +501,8 @@
           border-left: none;
           padding-left: 0;
         }
+
+        
       }
     }
 
